@@ -1,5 +1,8 @@
-# welcome to my website!
-Hello, my name is Nick.
-This web is help many people to become good at Python.
+# 환영합니다!
+제 웹사이트에 오신것을 환영합니다.
 <br>
-enjoy this wep plz!
+이웹사이트는 파이썬을 더 잘 사용할수있게 도와줍니다.
+<br>
+방문해주셔서 감사합니다 :)
+
+
