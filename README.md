@@ -2,7 +2,7 @@
 파이썬 가이드입니다.
 
 
-<span style="color: #3498db;">파란 느낌
+
 # 1. 파이썬 설치
 1. https://www.python.org/downloads/ 으로 들어갑니다.
 2. 자신의 운영체제에 맞는 파일을 다운받습니다.
