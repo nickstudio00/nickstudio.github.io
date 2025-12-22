@@ -1,5 +1,8 @@
 # 환영합니다!
 파이썬 가이드입니다.
+made by @nickYT9999 
+Copyright (C) 2025 @nickYT9999
+this program is free software: You can redistribute and/or modify it under the terms of the GNU General Public License.
 
 
 
@@ -46,5 +49,10 @@ Mac os 운영체제<br>
 일반적으로 개발 환경에서 사용됩니다.
 프로그램의 전체 소스 코드를 입력하고 입력된 소스 코드 전체가 실행됩니다.
 파이참이나 VS코드같은 프로그램으로 사용할수 있습니다.
+<br>
+이 사이트에서는 코드 편집기 전용으로 작성하였습니다.
 
 
+# 4. 파이썬의 특징
+파이썬은 인간다운 언어입니다. 파이썬은 인간이 생각하는 방식을 그대로 표연할수 있는 언어이기 때문에 진입장벽이 낮고 누구나 쉽게 사용할수 있는 언어중 하나입니다. 또한 파이썬은 활용도가 높고 배우기 쉬운 문법, 좋은 지원 사이트들 처럼 세상에서 제일 배우기 쉽고 지원받기 쉬운 언어입니다. ㅜㅜㅜ
+ㅡㅡㅡ
