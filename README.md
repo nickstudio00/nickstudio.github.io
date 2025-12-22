@@ -1,8 +1,8 @@
 # 환영합니다!
-파이썬 가이드입니다.
-made by @nickYT9999 
-Copyright (C) 2025 @nickYT9999
-this program is free software: You can redistribute and/or modify it under the terms of the GNU General Public License.
+파이썬 가이드입니다. <Br>
+made by @nickYT9999 <Br>
+Copyright (C) 2025 @nickYT9999<Br>
+this program is free software: You can redistribute and/or modify it under the terms of the GNU General Public License.<Br>
 
 
 
@@ -13,7 +13,6 @@ this program is free software: You can redistribute and/or modify it under the t
 4. Install Now를 누르면 설치가 진행됩니다.
 
 # 2. 파이썬 실행해보기
-
 Window 운영체제<br>
 1. 윈도우 키를 눌러 윈도우 창을 엽니다.
 2. 검색창에 cmd(커맨드라인)을 검색한 후 실행합니다.
@@ -21,7 +20,7 @@ Window 운영체제<br>
 4. python을 친 후 enter 키를 누릅니다.
 5. 그러면 파이썬 준비가 끝났습니다. 예시로 print("hello world")를 쳐 봅시다.
 6. 복사하는것보다 직접 쳐보는것이 도움이 될 것입니다
-
+<Br>
 Mac os 운영체제<br>
 1. 터미널을 실행시킵니다.
 2. python을 친 후 enter 키를 누릅니다.
@@ -54,5 +53,8 @@ Mac os 운영체제<br>
 
 
 # 4. 파이썬의 특징
-파이썬은 인간다운 언어입니다. 파이썬은 인간이 생각하는 방식을 그대로 표연할수 있는 언어이기 때문에 진입장벽이 낮고 누구나 쉽게 사용할수 있는 언어중 하나입니다. 또한 파이썬은 활용도가 높고 배우기 쉬운 문법, 좋은 지원 사이트들 처럼 세상에서 제일 배우기 쉽고 지원받기 쉬운 언어입니다. ㅜㅜㅜ
-ㅡㅡㅡ
+파이썬은 인간다운 언어입니다. 파이썬은 인간이 생각하는 방식을 그대로 표연할수 있는 언어이기 때문에 진입장벽이 낮고 누구나 쉽게 사용할수 있는 언어중 하나입니다. 또한 파이썬은 활용도가 높고 배우기 쉬운 문법, 좋은 지원 사이트들 처럼 세상에서 제일 배우기 쉽고 지원받기 쉬운 언어입니다. <Br>
+파이썬은 개발 속도가 매우 빠르다. 그래서 이 파이썬의 개발 속도 때문에 유행처럼 퍼진 말이 있다.<Br>
+'''Life is too short, you need Python'''
+
+
