@@ -1,8 +1,7 @@
 # 환영합니다!
 파이썬 가이드입니다. <Br>
 made by @nickYT9999 <Br>
-Copyright (C) 2025 @nickYT9999<Br>
-this program is free software: You can redistribute and/or modify it under the terms of the GNU General Public License.<Br>
+Copyright (C) 2025 Jaemin Shin <Br>
 
 
 
@@ -70,6 +69,9 @@ Mac os 운영체제<br>
 1-9. 변수 추가설명<Br>
 <Br>
 2. 제어문<Br>
+2-1. if
+2-2. while
+2-3. for
 
    
 
