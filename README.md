@@ -69,7 +69,7 @@ Mac os 운영체제<br>
 1-9. 변수 추가설명<Br>
 <Br>
 2. 제어문<Br>
-2-1. if
+2-1. if<br>
 2-2. while
 2-3. for
 
