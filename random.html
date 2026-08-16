@@ -105,7 +105,8 @@
             { name: "비브라늄",   probability: 0.25 },
             { name: "타이타늄",   probability: 0.15 },
             { name: "페인나이트",   probability: 0.10 },
-            { name: "플래티넘 다이아몬드",   probability: 0.05 }
+            { name: "플래티넘 다이아몬드",   probability: 0.05 },
+            { name: "석탄",   probability: 76 }
         ];
 
 
@@ -118,16 +119,20 @@
             0
         );
 
+        // 소수점 둘째 자리까지 반올림
+        const roundedTotal =
+            Math.round(totalProbability * 100) / 100;
+
 
         // =====================================
-        // 초기 확률 검사
+        // 확률 검사
         // =====================================
 
-        if (totalProbability !== 100) {
+        if (Math.abs(roundedTotal - 100) > 0.000001) {
 
             document.getElementById("result").innerHTML = `
                 <div class="error">
-                    확률의 합이 ${totalProbability}%입니다.<br>
+                    확률의 합이 ${roundedTotal}%입니다.<br>
                     확률의 합을 정확히 100%로 만들어주세요.
                 </div>
             `;
@@ -150,6 +155,9 @@
                     return item.name;
                 }
             }
+
+            // 혹시 모를 부동소수점 오차 방지
+            return probabilities[probabilities.length - 1].name;
         }
 
 
@@ -160,10 +168,10 @@
         function draw(count) {
 
             // 확률 합계 검사
-            if (totalProbability !== 100) {
+            if (Math.abs(roundedTotal - 100) > 0.000001) {
 
                 alert(
-                    `현재 확률의 합은 ${totalProbability}%입니다.\n` +
+                    `현재 확률의 합은 ${roundedTotal}%입니다.\n` +
                     `확률의 합이 100%가 되어야 합니다.`
                 );
 
@@ -175,7 +183,7 @@
             const results = [];
 
 
-            // 뽑기 실행
+            // 뽑기
             for (let i = 0; i < count; i++) {
 
                 results.push(randomResult());
@@ -183,7 +191,7 @@
 
 
             // =================================
-            // 결과 출력
+            // 뽑기 결과 출력
             // =================================
 
             let resultHTML = `
@@ -221,7 +229,7 @@
 
 
             // =================================
-            // 요약 출력
+            // 결과 요약
             // =================================
 
             resultHTML += `
@@ -243,7 +251,7 @@
                     <div class="summary-item">
                         <b>${item.name}</b><br>
                         획득: ${count}개 (${percentage}%)<br>
-                        설정 확률: ${item.probability}%
+                        설정 확률: ${item.probability.toFixed(2)}%
                     </div>
                 `;
             });
@@ -252,8 +260,9 @@
             resultHTML += `</div>`;
 
 
-            // 화면에 출력
-            document.getElementById("result").innerHTML = resultHTML;
+            // 화면 출력
+            document.getElementById("result").innerHTML =
+                resultHTML;
         }
 
     </script>
