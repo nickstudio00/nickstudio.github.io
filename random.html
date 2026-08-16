@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>확률 뽑기</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f2f2f2;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            background: #4f7cff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #315fe0;
+        }
+
+        #result {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>확률 뽑기</h1>
+
+    <button onclick="draw(1)">1회 뽑</button>
+    <button onclick="draw(10)">10회 뽑</button>
+    <button onclick="draw(20)">20회 뽑</button>
+    <button onclick="draw(30)">30회 뽑</button>
+    <button onclick="draw(31)">31회 뽑</button>
+
+    <div id="result">
+        결과가 여기에 표시됩니다.
+    </div>
+
+    <script>
+        // =========================
+        // 확률 설정
+        // =========================
+
+        const probabilities = [
+            { name: "SSR", probability: 1 },
+            { name: "SR",  probability: 5 },
+            { name: "R",   probability: 20 },
+            { name: "N",   probability: 74 }
+        ];
+
+        // =========================
+        // 확률 검사
+        // =========================
+
+        const totalProbability = probabilities.reduce(
+            (sum, item) => sum + item.probability,
+            0
+        );
+
+        if (totalProbability !== 100) {
+            document.getElementById("result").innerHTML =
+                `<div class="error">
+                    확률의 합이 ${totalProbability}%입니다.<br>
+                    반드시 100%가 되어야 합니다.
+                </div>`;
+        }
+
+        // =========================
+        // 1회 뽑기
+        // =========================
+
+        function randomResult() {
+            let random = Math.random() * 100;
+
+            for (const item of probabilities) {
+                random -= item.probability;
+
+                if (random < 0) {
+                    return item.name;
+                }
+            }
+        }
+
+        // =========================
+        // 여러 회 뽑기
+        // =========================
+
+        function draw(count) {
+            if (totalProbability !== 100) {
+                alert("확률의 합이 100%가 아닙니다.");
+                return;
+            }
+
+            const results = [];
+
+            for (let i = 0; i < count; i++) {
+                results.push(randomResult());
+            }
+
+            document.getElementById("result").innerHTML =
+                `<h2>${count}회 뽑기 결과</h2>` +
+                results.map((result, index) =>
+                    `${index + 1}. ${result}`
+                ).join("<br>");
+        }
+    </script>
+
+</body>
+</html>
