@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>확률 뽑기</title>
+    <title>광물 뽑기</title>
 
     <style>
         body {
@@ -73,7 +73,7 @@
 
 <body>
 
-    <h1>확률 뽑기</h1>
+    <h1>광물 뽑기</h1>
 
     <button onclick="draw(1)">1회 뽑</button>
     <button onclick="draw(10)">10회 뽑</button>
@@ -90,27 +90,37 @@
 
         // =====================================
         // 확률 설정
-        // 합계가 반드시 100%가 되어야 합니다.
+        // 확률이 높은 순서로 자동 정렬됩니다.
         // =====================================
 
         const probabilities = [
             { name: "꽝", probability: 10.85 },
-            { name: "청동",  probability: 3.5 },
-            { name: "은",   probability: 3.5 },
-            { name: "플래티넘(백금)",   probability: 2.5 },
-            { name: "사파이어",   probability: 1.8 },
-            { name: "에메랄드",   probability: 1 },
-            { name: "다이아몬드",   probability: 0.8 },
-            { name: "아다만티움",   probability: 0.5 },
-            { name: "비브라늄",   probability: 0.25 },
-            { name: "타이타늄",   probability: 0.15 },
-            { name: "페인나이트",   probability: 0.10 },
-            { name: "플래티넘 다이아몬드",   probability: 0.05 },
-            { name: "석탄",   probability: 75 }
+            { name: "청동", probability: 3.5 },
+            { name: "은", probability: 3.5 },
+            { name: "플래티넘(백금)", probability: 2.5 },
+            { name: "사파이어", probability: 1.8 },
+            { name: "에메랄드", probability: 1 },
+            { name: "다이아몬드", probability: 0.8 },
+            { name: "아다만티움", probability: 0.5 },
+            { name: "비브라늄", probability: 0.25 },
+            { name: "타이타늄", probability: 0.15 },
+            { name: "페인나이트", probability: 0.10 },
+            { name: "플래티넘 다이아몬드", probability: 0.05 },
+            { name: "석탄", probability: 75 }
         ];
 
+
         // =====================================
-        // 확률 합계 계산
+        // 확률 높은 순서로 정렬
+        // =====================================
+
+        probabilities.sort(
+            (a, b) => b.probability - a.probability
+        );
+
+
+        // =====================================
+        // 확률 합계
         // =====================================
 
         const totalProbability = probabilities.reduce(
@@ -118,7 +128,6 @@
             0
         );
 
-        // 소수점 둘째 자리까지 반올림
         const roundedTotal =
             Math.round(totalProbability * 100) / 100;
 
@@ -155,18 +164,17 @@
                 }
             }
 
-            // 혹시 모를 부동소수점 오차 방지
+            // 부동소수점 오차 방지
             return probabilities[probabilities.length - 1].name;
         }
 
 
         // =====================================
-        // 뽑기 실행
+        // 뽑기
         // =====================================
 
         function draw(count) {
 
-            // 확률 합계 검사
             if (Math.abs(roundedTotal - 100) > 0.000001) {
 
                 alert(
@@ -182,15 +190,13 @@
             const results = [];
 
 
-            // 뽑기
             for (let i = 0; i < count; i++) {
-
                 results.push(randomResult());
             }
 
 
             // =================================
-            // 뽑기 결과 출력
+            // 뽑기 결과
             // =================================
 
             let resultHTML = `
@@ -209,20 +215,16 @@
 
 
             // =================================
-            // 등급별 개수 계산
+            // 획득 개수 계산
             // =================================
 
             const counts = {};
 
-
             probabilities.forEach(item => {
-
                 counts[item.name] = 0;
             });
 
-
             results.forEach(result => {
-
                 counts[result]++;
             });
 
@@ -238,9 +240,15 @@
             `;
 
 
+            // 확률 높은 순서대로 확인
             probabilities.forEach(item => {
 
                 const count = counts[item.name];
+
+                // 한 번도 나오지 않은 광물은 표시하지 않음
+                if (count === 0) {
+                    return;
+                }
 
                 const percentage =
                     (count / results.length * 100).toFixed(2);
@@ -259,7 +267,6 @@
             resultHTML += `</div>`;
 
 
-            // 화면 출력
             document.getElementById("result").innerHTML =
                 resultHTML;
         }
